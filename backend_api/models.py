@@ -18,7 +18,7 @@ class Skill(models.Model):
 
     name = models.CharField(max_length=150)
     # make level options restricted on front-end (advanced, familiar, ...)
-    level = models.CharField(max_length=125, blank=True)
+    level = models.CharField(max_length=125, blank=True, null=True)
     # make skill type options restricted on front-end (hard/soft)
     type = models.CharField(max_length=100)
 
@@ -30,17 +30,19 @@ class Education(models.Model):
     """a model representing education earned"""
 
     school_name = models.CharField(max_length=200)
-    school_city = models.CharField(max_length=200, blank=True)
-    school_state = models.CharField(max_length=200, blank=True)
+    school_city = models.CharField(max_length=200, blank=True, null=True)
+    school_state = models.CharField(max_length=200, blank=True, null=True)
     school_country = models.CharField(max_length=200)
-    degree_earned = models.CharField(max_length=200, blank=True)
-    program = models.CharField(max_length=125, blank=True)
+    degree_earned = models.CharField(max_length=200, blank=True, null=True)
+    program = models.CharField(max_length=125, blank=True, null=True)
     date_started = models.DateField()
     date_completed = models.DateField()
-    accolades = models.CharField(max_length=250, blank=True)
+    accolades = models.CharField(max_length=250, blank=True, null=True)
 
     def __str__(self):
-        return f"{self.school_name.title()} | {self.degree_earned} | {self.date_completed}"
+        return (
+            f"{self.school_name.title()} | {self.degree_earned} | {self.date_completed}"
+        )
 
 
 class Experience(models.Model):
@@ -48,11 +50,11 @@ class Experience(models.Model):
 
     position = models.CharField(max_length=200)
     employer_name = models.CharField(max_length=250)
-    employer_city = models.CharField(max_length=200, blank=True)
-    employer_state = models.CharField(max_length=150, blank=True)
+    employer_city = models.CharField(max_length=200, blank=True, null=True)
+    employer_state = models.CharField(max_length=150, blank=True, null=True)
     employer_country = models.CharField(max_length=200)
     start_date = models.DateField()
-    end_date = models.DateField(blank=True)
+    end_date = models.DateField(blank=True, null=True)
     current_employer = models.BooleanField(default=False)
     description = models.TextField()
 
@@ -66,7 +68,7 @@ class Project(models.Model):
     title = models.CharField(max_length=250)
     tech_used = models.CharField(max_length=300)
     description = models.TextField()
-    git_repo = models.URLField(blank=True)
+    git_repo = models.URLField(blank=True, null=True)
 
     def __str__(self):
         return f"{self.title.title()}"
@@ -87,11 +89,11 @@ class Hobby(models.Model):
     """a model representing hobbies or additional info from resume"""
 
     name = models.CharField(max_length=200)
-    start_date = models.DateField(blank=True)
-    end_date = models.DateField(blank=True)
-    description = models.TextField(blank=True)
-    url = models.URLField(blank=True)
-    additional_info = models.CharField(max_length=250, blank=True)
+    start_date = models.DateField(blank=True, null=True)
+    end_date = models.DateField(blank=True, null=True)
+    description = models.TextField(blank=True, null=True)
+    url = models.URLField(blank=True, null=True)
+    additional_info = models.CharField(max_length=250, blank=True, null=True)
 
     class Meta:
         verbose_name_plural = "hobbies"
