@@ -1,3 +1,47 @@
 from django.shortcuts import render
+from .models import Profile, Skill, Education, Experience, Project, Website, Hobby
+from .serializers import (
+    ProfileSerializer,
+    SkillSerializer,
+    EducationSerializer,
+    ExperienceSerializer,
+    ProjectSerializer,
+    WebsiteSerializer,
+    HobbySerializer,
+)
+from rest_framework import viewsets
 
 # Create your views here.
+class ProfileViewSet(viewsets.ModelViewSet):
+    serializer_class = ProfileSerializer
+    queryset = Profile.objects.all()
+
+
+class SkillViewSet(viewsets.ModelViewSet):
+    serializer_class = SkillSerializer
+    queryset = Skill.objects.all()
+
+
+class EducationViewSet(viewsets.ModelViewSet):
+    serializer_class = EducationSerializer
+    queryset = Education.objects.all()
+
+
+class ExperienceViewSet(viewsets.ModelViewSet):
+    serializer_class = ExperienceSerializer
+    queryset = Experience.objects.all()
+
+
+class ProjectViewSet(viewsets.ModelViewSet):
+    serializer_class = ProjectSerializer
+    queryset = Project.objects.all()
+
+
+class WebsiteViewSet(viewsets.ModelViewSet):
+    serializer_class = WebsiteSerializer
+    queryset = Website.objects.all()
+
+
+class HobbyViewSet(viewsets.ModelViewSet):
+    serializer_class = HobbySerializer
+    queryset = Hobby.objects.all()
