@@ -18,7 +18,7 @@ class Skill(models.Model):
 
     name = models.CharField(max_length=150)
     # make level options restricted on front-end (advanced, familiar, ...)
-    level = models.CharField(blank=True)
+    level = models.CharField(max_length=125, blank=True)
     # make skill type options restricted on front-end (hard/soft)
     type = models.CharField(max_length=100)
 
@@ -40,7 +40,7 @@ class Education(models.Model):
     accolades = models.CharField(max_length=250, blank=True)
 
     def __str__(self):
-        return f"{self.school_name.title()} | {self.date_completed}"
+        return f"{self.school_name.title()} | {self.degree_earned} | {self.date_completed}"
 
 
 class Experience(models.Model):
@@ -92,6 +92,9 @@ class Hobby(models.Model):
     description = models.TextField(blank=True)
     url = models.URLField(blank=True)
     additional_info = models.CharField(max_length=250, blank=True)
+
+    class Meta:
+        verbose_name_plural = "hobbies"
 
     def __str__(self):
         return f"{self.name.title()}"
