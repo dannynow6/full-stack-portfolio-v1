@@ -10,7 +10,7 @@ class Profile(models.Model):
     description = models.TextField()
 
     def __str__(self):
-        return f"{self.title.title()}"
+        return f"{self.id} {self.title.title()}"
 
 
 class Skill(models.Model):
@@ -23,7 +23,7 @@ class Skill(models.Model):
     type = models.CharField(max_length=100)
 
     def __str__(self):
-        return f"{self.name.title()}, {self.type}"
+        return f"{self.id} {self.name.title()}, {self.type}"
 
 
 class Education(models.Model):
