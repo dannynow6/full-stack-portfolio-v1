@@ -55,7 +55,7 @@ class Experience(models.Model):
     employer_country = models.CharField(max_length=200)
     start_date = models.DateField()
     end_date = models.DateField(blank=True, null=True)
-    current_employer = models.BooleanField(default=False)
+    current_employer = models.CharField(max_length=50, help_text="yes or no")
     description = models.TextField()
 
     def __str__(self):
