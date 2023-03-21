@@ -90,7 +90,7 @@ class Hobby(models.Model):
 
     name = models.CharField(max_length=200)
     start_date = models.DateField(blank=True, null=True)
-    end_date = models.DateField(blank=True, null=True)
+    end_date = models.CharField(max_length=25, blank=True, null=True)
     description = models.TextField(blank=True, null=True)
     url = models.URLField(blank=True, null=True)
     additional_info = models.CharField(max_length=250, blank=True, null=True)
