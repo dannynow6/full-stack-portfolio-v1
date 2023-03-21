@@ -54,7 +54,7 @@ class Experience(models.Model):
     employer_state = models.CharField(max_length=150, blank=True, null=True)
     employer_country = models.CharField(max_length=200)
     start_date = models.DateField()
-    end_date = models.DateField(blank=True, null=True)
+    end_date = models.CharField(max_length=25, blank=True, null=True)
     current_employer = models.CharField(max_length=50, help_text="yes or no")
     description = models.TextField()
 
