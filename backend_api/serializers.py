@@ -7,6 +7,7 @@ from backend_api.models import (
     Project,
     Website,
     Hobby,
+    ProfilePic,
 )
 
 
@@ -49,4 +50,10 @@ class WebsiteSerializer(serializers.ModelSerializer):
 class HobbySerializer(serializers.ModelSerializer):
     class Meta:
         model = Hobby
+        fields = "__all__"
+
+
+class ProfilePicSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ProfilePic
         fields = "__all__"

@@ -1,5 +1,14 @@
 from django.shortcuts import render
-from .models import Profile, Skill, Education, Experience, Project, Website, Hobby
+from .models import (
+    Profile,
+    Skill,
+    Education,
+    Experience,
+    Project,
+    Website,
+    Hobby,
+    ProfilePic,
+)
 from .serializers import (
     ProfileSerializer,
     SkillSerializer,
@@ -8,6 +17,7 @@ from .serializers import (
     ProjectSerializer,
     WebsiteSerializer,
     HobbySerializer,
+    ProfilePicSerializer,
 )
 from rest_framework import viewsets
 
@@ -45,3 +55,8 @@ class WebsiteViewSet(viewsets.ModelViewSet):
 class HobbyViewSet(viewsets.ModelViewSet):
     serializer_class = HobbySerializer
     queryset = Hobby.objects.all()
+
+
+class ProfilePicViewSet(viewsets.ModelViewSet):
+    serializer_class = ProfilePicSerializer
+    queryset = ProfilePic.objects.all()

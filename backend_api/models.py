@@ -100,3 +100,13 @@ class Hobby(models.Model):
 
     def __str__(self):
         return f"{self.name.title()}"
+
+
+class ProfilePic(models.Model):
+    """a model representing pictures for use on resume/website"""
+
+    name = models.CharField(max_length=125)
+    picture = models.ImageField(upload_to="photos/")
+
+    def __str__(self):
+        return f"{self.name.title()}"
