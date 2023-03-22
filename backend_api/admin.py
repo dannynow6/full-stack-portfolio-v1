@@ -1,5 +1,14 @@
 from django.contrib import admin
-from .models import Profile, Skill, Education, Experience, Project, Website, Hobby
+from .models import (
+    Profile,
+    Skill,
+    Education,
+    Experience,
+    Project,
+    Website,
+    Hobby,
+    ProfilePic,
+)
 
 # Register your models here.
 
@@ -44,3 +53,9 @@ class HobbyAdmin(admin.ModelAdmin):
     list = ("name", "start_date", "url")
 
     admin.site.register(Hobby)
+
+
+class ProfilePicAdmin(admin.ModelAdmin):
+    list = "name"
+
+    admin.site.register(ProfilePic)
