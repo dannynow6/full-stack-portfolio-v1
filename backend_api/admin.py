@@ -8,6 +8,7 @@ from .models import (
     Website,
     Hobby,
     ProfilePic,
+    MyInfo, 
 )
 
 # Register your models here.
@@ -59,3 +60,8 @@ class ProfilePicAdmin(admin.ModelAdmin):
     list = "name"
 
     admin.site.register(ProfilePic)
+
+class MyInfoAdmin(admin.ModelAdmin):
+    list = ("last_name", "first_name", "email", "postal", "country")
+    
+    admin.site.register(MyInfo) 

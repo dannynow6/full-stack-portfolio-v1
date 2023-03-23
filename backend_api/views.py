@@ -8,6 +8,7 @@ from .models import (
     Website,
     Hobby,
     ProfilePic,
+    MyInfo,
 )
 from .serializers import (
     ProfileSerializer,
@@ -18,6 +19,7 @@ from .serializers import (
     WebsiteSerializer,
     HobbySerializer,
     ProfilePicSerializer,
+    MyInfoSerializer,
 )
 from rest_framework import viewsets
 
@@ -60,3 +62,8 @@ class HobbyViewSet(viewsets.ModelViewSet):
 class ProfilePicViewSet(viewsets.ModelViewSet):
     serializer_class = ProfilePicSerializer
     queryset = ProfilePic.objects.all()
+
+
+class MyInfoViewSet(viewsets.ModelViewSet):
+    serializer_class = MyInfoSerializer 
+    queryset = MyInfo.objects.all() 

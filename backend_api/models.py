@@ -110,3 +110,21 @@ class ProfilePic(models.Model):
 
     def __str__(self):
         return f"{self.name.title()}"
+
+
+class MyInfo(models.Model):
+    """A model representing basic user contact info"""
+    # Note: will move this to user account later
+    first_name = models.CharField(max_length=250)
+    last_name = models.CharField(max_length=250)
+    email = models.EmailField(blank=True, null=True) 
+    street = models.CharField(max_length=300, blank=True, null=True) 
+    city = models.CharField(max_length=300, blank=True, null=True) 
+    state = models.CharField(max_length=300, blank=True, null=True) 
+    postal = models.CharField(max_length=25, blank=True, null=True) 
+    country = models.CharField(max_length=300, blank=True, null=True) 
+    
+    def __str__(self):
+        full_name = f"{self.last_name.title()}, {self.first_name.title()}"
+        return f"{full_name}"
+    
